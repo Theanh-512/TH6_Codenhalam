@@ -1,0 +1,6 @@
+@_2380614489_NguyenHoTheAnh_TH6_HostAddress = http://localhost:5185
+
+GET {{_2380614489_NguyenHoTheAnh_TH6_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

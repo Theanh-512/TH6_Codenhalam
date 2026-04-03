@@ -1,0 +1,54 @@
+<div class="panel-card">
+  <div class="panel-header">
+    <h3><i class="fas" [class.fa-plus-circle]="!editingProduct" [class.fa-edit]="editingProduct"></i> 
+      {{ editingProduct ? 'Sửa sản phẩm' : 'Thêm sản phẩm mới' }}
+    </h3>
+  </div>
+  
+  <form (submit)="saveProduct()" class="product-form">
+    <div class="form-group">
+      <label>Tên sản phẩm</label>
+      <div class="input-wrapper">
+        <i class="fas fa-tag"></i>
+        <input type="text" name="name" [(ngModel)]="currentProduct.name" required placeholder="VD: iPhone 16 Pro Max">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Giá (VNĐ)</label>
+      <div class="input-wrapper">
+        <i class="fas fa-dollar-sign"></i>
+        <input type="number" name="price" [(ngModel)]="currentProduct.price" required placeholder="0">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Mô tả ngắn</label>
+      <div class="input-wrapper">
+        <i class="fas fa-align-left"></i>
+        <textarea name="description" [(ngModel)]="currentProduct.description" rows="3" placeholder="Nhập chi tiết sản phẩm..."></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Hình ảnh sản phẩm</label>
+      <div class="upload-container" [style.background-image]="'url(' + productService.getFullImageUrl(previewUrl || currentProduct.imageUrl) + ')'">
+        <input type="file" (change)="onFileSelected($event)" accept="image/*" id="fileInputForm">
+        <label for="fileInputForm" class="upload-overlay">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <span>{{ currentProduct.imageUrl ? 'Thay đổi ảnh' : 'Tải ảnh lên' }}</span>
+        </label>
+      </div>
+      <div class="url-hint" *ngIf="isUploading">Đang tải ảnh...</div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn-save" [disabled]="isUploading">
+        <i class="fas fa-check"></i> {{ editingProduct ? 'Cập nhật' : 'Lưu sản phẩm' }}
+      </button>
+      <button type="button" *ngIf="editingProduct" (click)="resetForm()" class="btn-cancel">
+        Hủy
+      </button>
+    </div>
+  </form>
+</div>

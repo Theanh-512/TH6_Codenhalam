@@ -1,0 +1,26 @@
+# .NET Core
+bin/
+obj/
+*.user
+*.suo
+*.sln.docstates
+.vs/
+.vscode/
+.idea/
+
+# Angular
+Frontend/node_modules/
+Frontend/.angular/
+Frontend/dist/
+Frontend/tmp/
+Frontend/out-tsc/
+
+# Local DB & App Data
+*.mdf
+*.ldf
+/wwwroot/images/*
+!/wwwroot/images/.gitkeep
+
+# Env
+.env
+appsettings.Local.json

@@ -1,0 +1,29 @@
+<nav class="cps-navbar">
+  <div class="cps-container">
+    <div class="logo">Codenhalam</div>
+    
+    <button class="btn-category">
+      <i class="fas fa-th"></i> Danh mục <i class="fas fa-caret-down"></i>
+    </button>
+
+    <div class="search-wrapper">
+      <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()" placeholder="Bạn muốn mua gì hôm nay?">
+      <button class="btn-search"><i class="fas fa-search"></i></button>
+    </div>
+
+    <div class="header-actions">
+      <div class="action-item">
+        <span class="action-text">Giỏ hàng</span>
+        <i class="fas fa-shopping-cart"></i>
+      </div>
+      <div class="action-item">
+        <span class="action-text">Đăng ký</span>
+        <i class="fas fa-user-plus"></i>
+      </div>
+      <div class="action-item line">
+        <span class="action-text">Đăng nhập</span>
+        <i class="fas fa-user-circle"></i>
+      </div>
+    </div>
+  </div>
+</nav>

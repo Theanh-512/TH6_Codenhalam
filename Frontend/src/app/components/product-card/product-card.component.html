@@ -1,0 +1,23 @@
+<div class="cps-product-card">
+  <div class="card-image-box">
+    <img [src]="productService.getFullImageUrl(product.imageUrl)" [alt]="product.name">
+    
+    <div class="card-actions">
+      <button (click)="onEdit()" class="btn-action edit" title="Sửa">
+        <i class="fas fa-edit"></i>
+      </button>
+      <button (click)="onDelete()" class="btn-action delete" title="Xóa">
+        <i class="fas fa-trash-alt"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="card-content">
+    <h4 class="product-title">{{ product.name }}</h4>
+    <div class="product-price">{{ (product.price || 0).toLocaleString('vi-VN') }} ₫</div>
+  </div>
+
+  <button class="btn-add-cart">
+    <i class="fas fa-shopping-cart"></i> THÊM VÀO GIỎ
+  </button>
+</div>

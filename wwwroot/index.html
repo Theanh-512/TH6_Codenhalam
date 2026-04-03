@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management API</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-boxes-stacked"></i> Product Manager</h1>
+            <button id="btnOpenAddModal" class="btn btn-primary"><i class="fas fa-plus"></i> Add New Product</button>
+        </header>
+
+        <section class="search-section">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search products by name...">
+            </div>
+        </section>
+
+        <main>
+            <div id="productList" class="product-grid">
+                <!-- Products will be dynamically loaded here -->
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading products...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add New Product</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="productForm">
+                <input type="hidden" id="productId">
+                <div class="form-group">
+                    <label for="productName">Product Name</label>
+                    <input type="text" id="productName" required placeholder="e.g. Premium Laptop">
+                </div>
+                <div class="form-group">
+                    <label for="productPrice">Price ($)</label>
+                    <input type="number" id="productPrice" required step="0.01" min="0" placeholder="0.00">
+                </div>
+                <div class="form-group">
+                    <label for="productDescription">Description</label>
+                    <textarea id="productDescription" rows="4" placeholder="Enter product details..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="productImage"><i class="fas fa-image"></i> Product Image (Upload)</label>
+                    <input type="file" id="productImage" accept="image/*">
+                    <input type="hidden" id="productImageUrl">
+                    <div id="imagePreview" style="margin-top: 10px;">
+                        <img id="previewImg" src="" alt="Preview" style="max-width: 100%; max-height: 120px; display: none; border-radius: 4px;">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close-modal">Cancel</button>
+                    <button type="submit" id="btnSaveProduct" class="btn btn-primary">Save Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Product Details</h2>
+                <span class="close-detail">&times;</span>
+            </div>
+            <div id="detailContent" class="detail-view">
+                <!-- Detail content goes here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary close-detail">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
